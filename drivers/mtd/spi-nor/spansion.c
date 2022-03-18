@@ -292,9 +292,10 @@ static const struct flash_info spansion_parts[] = {
 			      SPI_NOR_OCTAL_DTR_PP)
 		.fixups = &s28hs512t_fixups,
 	},
-	{ "s25hs512t",  INFO6(0x342b1a, 0x0f0390, 256 * 1024, 256,
-                        SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES |
-                        USE_CLSR) },
+	{ "s25hs512t",  INFO6(0x342b1a, 0x0f0390, 256 * 1024, 256)
+		FLAGS(USE_CLSR)
+		NO_SFDP_FLAGS(SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ | SPI_NOR_4B_OPCODES) 
+	},
 };
 
 static void spansion_late_init(struct spi_nor *nor)
